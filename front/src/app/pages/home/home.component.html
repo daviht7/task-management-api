@@ -1,0 +1,132 @@
+<div class="mt-5 container rounded">
+  <form [formGroup]="formCreateTask" (ngSubmit)="handleSaveTask()">
+    <div class="col-12 d-flex gap-10">
+
+      <span class="p-input-icon-left" class="col-10">
+        <input pInputText type="text"
+          placeholder="O que você pretende fazer hoje...?"
+          class="col-12" formControlName="title" maxlength="100"/>
+      </span>
+      <p-button type="submit" label="Salvar" icon="pi
+        pi-check" styleClass="p-button-rounded p-button-success"></p-button>
+    </div>
+  </form>
+
+  <div *ngIf="tasks.length===0" class="mt-5
+    text-align-center d-flex
+    align-items-center justify-content-center height-500">
+    <span class="font-size-40">Sem tarefas cadastradas :/</span>
+  </div>
+
+  <div class="mt-5"
+    *ngIf="tasks.length> 0">
+
+    <div class="col-12 d-flex flex-row gap-10">
+      <p-button icon="pi pi-trash" styleClass="p-button
+        p-button-danger p-button-raised p-button-sm col-1"
+        pDroppable="open"
+        (onDrop)="dropTaskDeleteTaskSubTask()" title="Arraste aqui uma
+        Tarefa/Sub Tarefa
+        para Remover"></p-button>
+      <div
+        id="taskPrincipal" class="text-center p-1 col-11 d-flex flex-column
+        justify-content-center div-arrastar rounded"
+        pDroppable="open" (onDrop)="dropChangeSubTaskIntoTask()">
+        <span>Arraste a Sub Tarefa aqui para
+          transformá-la em Tarefa!</span>
+      </div>
+    </div>
+
+    <div class="mt-2 div-overflow rounded">
+
+      <p-fieldset legend="Tarefas Cadastradas" class="p-1">
+
+        <div *ngFor="let task of tasks;">
+          <div class="mt-2 d-flex flex-column">
+            <div class="d-flex flex-row justify-content-between
+              align-items-center bg-task rounded"
+              pDroppable="open" (onDrop)="dropTask(task.id)" pDraggable="open"
+              (onDragStart)="dragStartTask(task.id)"
+              dragEffect="move">
+              <div class="p-2">
+                <span>{{task.title}}</span>
+              </div>
+              <div>
+                <p-button icon="pi pi-pencil" styleClass="p-button-rounded
+                  p-button-secondary p-button-text"
+                  (click)="handleEditTask(task)"
+                  class="ml-2" title="Editar Tarefa"></p-button>
+                <p-button icon="pi pi-plus" styleClass="p-button-rounded
+                  p-button-secondary p-button-text"
+                  (click)="handleCreateNewSubTask(task.id)" title="Cadastrar Sub
+                  Tarefa"></p-button>
+              </div>
+            </div>
+            <div *ngFor="let subTask of task.subTasks" class="mt-2
+              d-flex flex-row justify-content-between align-items-center
+              div-sub-task rounded">
+              <div class="p-2 cursor-pointer" pDraggable="open"
+                (onDragStart)="dragStartSubTask(subTask.id,task.id)"
+                dragEffect="move">
+                <span>{{subTask.title}}</span>
+              </div>
+              <div>
+                <p-button icon="pi pi-pencil" styleClass="p-button-rounded
+                  p-button-secondary p-button-text" title="Editar Sub Tarefa"
+                  (click)="handleEditSubTask(task.id,subTask)"></p-button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </p-fieldset>
+
+    </div>
+
+  </div>
+
+</div>
+
+<p-dialog [header]="titleLabelSaveSubTask"
+  [(visible)]="isModalCreateNewSubTaskVisible"
+  [breakpoints]="{ '960px': '75vw'
+  }" [style]="{ width: '50vw' }" [draggable]="true" [resizable]="false"
+  [modal]="true" [closeOnEscape]="true" [dismissableMask]="true">
+  <form [formGroup]="formCreateSubTask" (ngSubmit)="handleAddNewSubTask()">
+    <div class="col-12 gap-10 d-flex">
+
+      <span class="p-input-icon-left" class="col-10">
+        <input pInputText type="text"
+          placeholder="O que você pretende fazer hoje...?"
+          class="col-12" formControlName="title" maxlength="100"/>
+      </span>
+      <p-button type="submit" label="Salvar" icon="pi pi-check"
+        styleClass="p-button-rounded
+        p-button-success"></p-button>
+
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog header="Editar Tarefa"
+  [(visible)]="isModalEditTask"
+  [breakpoints]="{ '960px': '75vw'
+  }" [style]="{ width: '50vw' }" [draggable]="true" [resizable]="false"
+  [modal]="true" [closeOnEscape]="true" [dismissableMask]="true"
+  (onHide)="handleModalHide()">
+  <form [formGroup]="formEditTask" (ngSubmit)="handleEditTaskModal()">
+    <div class="col-12 d-flex gap-10">
+
+      <span class="p-input-icon-left" class="col-10">
+        <input pInputText type="text"
+          placeholder="O que você pretende fazer hoje...?"
+          class="col-12" formControlName="title" maxlength="100"/>
+      </span>
+      <p-button type="submit" label="Editar" icon="pi pi-check"
+        styleClass="p-button-rounded
+        p-button-warning"></p-button>
+
+    </div>
+  </form>
+</p-dialog>

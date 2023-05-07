@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "82368078-6a40-4afc-a0da-89e43a43052c",
+		"name": "management-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7325096"
+	},
+	"item": [
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "Create task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"fazer atividade\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Task By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/aaecf7fa-3b1e-44bb-8d8b-6572337079f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"aaecf7fa-3b1e-44bb-8d8b-6572337079f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/229ae8ff-be53-4218-a8e6-2230a8f00957",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"229ae8ff-be53-4218-a8e6-2230a8f00957"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"fazer o café 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/1ae4c811-fb62-4a14-ab3b-ecc3bbe0e496",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"1ae4c811-fb62-4a14-ab3b-ecc3bbe0e496"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Task into Sub Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"taskId\" : \"0940619d-32c9-4af9-bd86-63d9bb9e86cc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/c65770f3-c796-4b6a-82c5-7c071216a19d/change-task-into-sub-task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"c65770f3-c796-4b6a-82c5-7c071216a19d",
+								"change-task-into-sub-task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subtask",
+			"item": [
+				{
+					"name": "Create subtask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"preparar a cafeína 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/c65770f3-c796-4b6a-82c5-7c071216a19d/sub-task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"c65770f3-c796-4b6a-82c5-7c071216a19d",
+								"sub-task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sub Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"fazer o café 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/c65770f3-c796-4b6a-82c5-7c071216a19d/sub-task/20e3c949-ec81-4d27-a2f2-01c2b8126cdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"c65770f3-c796-4b6a-82c5-7c071216a19d",
+								"sub-task",
+								"20e3c949-ec81-4d27-a2f2-01c2b8126cdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sub Task By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/c65770f3-c796-4b6a-82c5-7c071216a19d/sub-task/20e3c949-ec81-4d27-a2f2-01c2b8126cdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"c65770f3-c796-4b6a-82c5-7c071216a19d",
+								"sub-task",
+								"20e3c949-ec81-4d27-a2f2-01c2b8126cdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Sub Task into Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sub-task/fb671b0d-f1f3-4987-84bf-c5eacd1a6494/change-sub-task-into-task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sub-task",
+								"fb671b0d-f1f3-4987-84bf-c5eacd1a6494",
+								"change-sub-task-into-task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Task From Sub Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sub-task/fb671b0d-f1f3-4987-84bf-c5eacd1a6494/change-sub-task-into-task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sub-task",
+								"fb671b0d-f1f3-4987-84bf-c5eacd1a6494",
+								"change-sub-task-into-task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

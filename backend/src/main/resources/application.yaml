@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/management-task
+    username: postgres
+    password: root
+  jpa:
+    generate-ddl: true
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  hibernate:
+    ddl-auto: create

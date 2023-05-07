@@ -1,0 +1,46 @@
+.p-draggable-enter {
+  border: 1px solid #000 !important;
+}
+
+.container {
+  max-width: 800px; 
+  height: 820px; 
+  margin:0 auto;
+  background-color:#fff; 
+  padding:40px 20px;
+}
+
+.gap-10 {
+  gap:10px;
+}
+
+.div-arrastar {
+  height: 50px; 
+  border: 1px solid #ccc;
+}
+
+.div-overflow {
+  overflow-y: auto; 
+  height:550px;
+}
+
+.bg-task {
+  background-color:#C8C5C4;
+}
+
+.div-sub-task {
+  margin-left:10px;
+  background-color:#DAD7D6;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.height-500 {
+  height: 500px;
+}
+
+.font-size-40 {
+  font-size: 40px;
+}
